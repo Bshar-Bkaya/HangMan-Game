@@ -1,0 +1,384 @@
+* {
+  box-sizing  : border-box;
+}
+
+body {
+  font-family  : Tahoma, Arial;
+}
+
+.container {
+  margin  : 20px auto;
+  width   : 1000px;
+}
+
+.game-info {
+  display  : flex;
+}
+
+.game-info .game-name {
+  flex  : 1;
+}
+
+.game-info .category {
+  flex        : 1;
+  text-align  : right;
+}
+
+.game-info .category span {
+  text-transform  : capitalize;
+  color           : #E91E63;
+  font-weight     : bold;
+}
+
+hr {
+  border  : 1px solid #EEE;
+}
+
+.row {
+  display  : flex;
+}
+
+.hangman-draw {
+  flex              : 1;
+  background-color  : #f8f8f8;
+  padding           : 20px;
+  height            : 324px;
+}
+
+.hangman-draw .the-draw {
+  width          : 60px;
+  height         : 280px;
+  border-bottom  : 4px solid #222;
+  position       : relative;
+  margin         : auto;
+  left           : -40px;
+}
+
+.hangman-draw.wrong-1 .the-stand::before {
+  content           : '';
+  position          : absolute;
+  width             : 4px;
+  background-color  : #222;
+  height            : 100%;
+  left              : 50%;
+  margin-left       : -2px;
+}
+
+.hangman-draw.wrong-2 .the-hang::before {
+  content           : '';
+  position          : absolute;
+  width             : 100px;
+  height            : 4px;
+  background-color  : #222;
+  left              : 30px;
+  top               : 15px;
+}
+
+.hangman-draw.wrong-3 .the-hang::after {
+  content           : '';
+  position          : absolute;
+  width             : 4px;
+  height            : 30px;
+  background-color  : #222;
+  left              : 130px;
+  top               : 15px;
+}
+
+.hangman-draw.wrong-4 .the-rope {
+  width          : 70px;
+  height         : 70px;
+  border-radius  : 50%;
+  border         : 4px dashed #222;
+  position       : absolute;
+  left           : 95px;
+  top            : 45px;
+}
+
+.hangman-draw.wrong-5 .the-man .head {
+  height         : 50px;
+  width          : 50px;
+  border-radius  : 50%;
+  border         : 4px solid #222;
+  position       : absolute;
+  left           : 105px;
+  top            : 55px;
+}
+
+.hangman-draw.wrong-5 .the-man .head .mouth {
+  content        : "";
+  position       : absolute;
+  width          : 15px;
+  height         : 15px;
+  border-radius  : 50%;
+  left           : 13px;
+  top            : 18px;
+  border-bottom  : 4px solid #222;
+}
+
+.hangman-draw.wrong-5 .the-man .head .eyes::before {
+  content           : "";
+  position          : absolute;
+  width             : 4px;
+  height            : 4px;
+  border-radius     : 50%;
+  background-color  : #222;
+  left              : 25px;
+  top               : 10px;
+}
+
+.hangman-draw.wrong-5 .the-man .head .eyes::after {
+  content           : "";
+  position          : absolute;
+  width             : 4px;
+  height            : 4px;
+  border-radius     : 50%;
+  background-color  : #222;
+  left              : 10px;
+  top               : 10px;
+}
+
+.hangman-draw.wrong-6 .the-man .body {
+  position          : absolute;
+  background-color  : #222;
+  width             : 4px;
+  height            : 110px;
+  left              : 130px;
+  top               : 103px;
+}
+
+.hangman-draw.wrong-7 .the-man .hands::before,
+.hangman-draw.wrong-7 .the-man .hands::after {
+  content           : '';
+  position          : absolute;
+  background-color  : #222;
+  width             : 4px;
+  height            : 50px;
+  top               : 107px;
+  left              : 130px;
+  transform-origin  : 100% 100%;
+}
+
+.hangman-draw.wrong-7 .the-man .hands::before {
+  transform  : rotate(-50deg);
+}
+
+.hangman-draw.wrong-7 .the-man .hands::after {
+  transform  : rotate(50deg);
+}
+
+@keyframes frfehhl {
+  0% {
+    transform  : rotate(-50deg);
+  }
+
+  50% {
+    transform  : rotate(-20deg);
+  }
+
+  100% {
+    transform  : rotate(-50deg);
+  }
+}
+
+@keyframes frfehhr {
+  0% {
+    transform  : rotate(50deg);
+  }
+
+  50% {
+    transform  : rotate(20deg);
+  }
+
+  100% {
+    transform  : rotate(50deg);
+  }
+}
+
+.hangman-draw.wrong-8 .the-man .legs::before,
+.hangman-draw.wrong-8 .the-man .legs::after {
+  content           : '';
+  position          : absolute;
+  background-color  : #222;
+  width             : 4px;
+  height            : 50px;
+  top               : 160px;
+  left              : 125px;
+  transform-origin  : 100% 100%;
+}
+
+.hangman-draw.wrong-8 .the-man .legs::before {
+  transform  : rotate(230deg);
+  animation  : frfehll 2s infinite;
+  top        : 159px;
+  left       : 126px;
+}
+
+.hangman-draw.wrong-8 .the-man .legs::after {
+  transform  : rotate(-230deg);
+  animation  : frfehlr 2s infinite;
+  top        : 163px;
+  left       : 128px;
+}
+
+.hangman-draw.wrong-8 .the-man .hands::before {
+  animation  : frfehhl 2s 1.5s infinite;
+}
+
+.hangman-draw.wrong-8 .the-man .hands::after {
+  animation  : frfehhr 2s infinite;
+}
+
+.hangman-draw.wrong-8 .the-man .head .mouth {
+  background-color  : #222;
+}
+
+@keyframes frfehll {
+  0% {
+    transform  : rotate(230deg);
+  }
+
+  50% {
+    transform  : rotate(280deg);
+  }
+
+  100% {
+    transform  : rotate(230deg);
+  }
+}
+
+@keyframes frfehlr {
+  0% {
+    transform  : rotate(-230deg);
+  }
+
+  50% {
+    transform  : rotate(-280deg);
+  }
+
+  100% {
+    transform  : rotate(-230deg);
+  }
+}
+
+.letters {
+  flex        : 1;
+  text-align  : center;
+  padding     : 15px;
+}
+
+.letters.finished {
+  pointer-events  : none;
+  user-select     : none;
+}
+
+.letters .letter-box {
+  display           : inline-block;
+  width             : 55px;
+  height            : 55px;
+  background-color  : #009688;
+  color             : #fff;
+  font-size         : 24px;
+  margin-right      : 10px;
+  margin-bottom     : 10px;
+  line-height       : 55px;
+  text-transform    : uppercase;
+  font-weight       : bold;
+  cursor            : pointer;
+}
+
+.letter-box.clicked {
+  background-color  : #222;
+  opacity           : 0.2;
+  pointer-events    : none;
+}
+
+.letters-guess {
+  margin            : 10px auto;
+  background-color  : #f8f8f8;
+  padding           : 20px;
+  display           : flex;
+  justify-content   : center;
+  min-height        : 104px;
+}
+
+.letters-guess span {
+  display           : inline-block;
+  width             : 60px;
+  height            : 60px;
+  font-size         : 24px;
+  margin-right      : 10px;
+  text-align        : center;
+  line-height       : 60px;
+  text-transform    : uppercase;
+  font-weight       : bold;
+  background-color  : #fdfdfd;
+  border-bottom     : 3px solid #222;
+  transition        : .3s;
+}
+
+.letters-guess span.with-space {
+  background     : none;
+  border-bottom  : none;
+  position       : relative;
+}
+
+.letters-guess span.with-space::before {
+  content           : " ";
+  width             : 20px;
+  height            : 4px;
+  background-color  : #222;
+  position          : absolute;
+  left              : 50%;
+  top               : 50%;
+  transform         : translate(-50%, -50%);
+}
+
+.popup,
+.winner {
+  position  : fixed;
+  left      : 0;
+  top       : 0;
+  height    : 100%;
+  width     : 100%;
+  color     : #fff;
+}
+
+.popup {
+  background-color  : rgba(255, 140, 150, 0.315);
+}
+
+.winner {
+  background-color  : rgba(70, 241, 82, 0.315);
+}
+
+.popup span {
+  position          : absolute;
+  left              : 50%;
+  top               : 80%;
+  transform         : translate(-50%, -50%);
+  border            : 3px solid red;
+  background-color  : rgb(250, 41, 41);
+  color             : white;
+  padding           : 15px;
+  font-size         : 50px;
+  border-radius     : 3px;
+  box-shadow        : 7px 13px 4px 1px red;
+  cursor            : pointer;
+  letter-spacing    : .2;
+}
+
+.winner span {
+  position          : absolute;
+  left              : 50%;
+  top               : 80%;
+  transform         : translate(-50%, -50%);
+  border            : 3px solid rgb(13, 255, 0);
+  background-color  : rgb(51, 250, 41);
+  color             : white;
+  padding           : 15px;
+  font-size         : 50px;
+  border-radius     : 3px;
+  box-shadow        : 7px 13px 4px 1px green;
+  cursor            : pointer;
+  letter-spacing    : .2;
+}
